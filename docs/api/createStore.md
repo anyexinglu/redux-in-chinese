@@ -1,4 +1,4 @@
-# `createStore(reducer, [initialState])`
+# `createStore(reducer, [initialState], [enhancer])`
 
 创建一个 Redux [store](Store.md) 来以存放应用中所有的 state。  
 应用中应有且仅有一个 store。
@@ -9,6 +9,8 @@
 
 2. [`initialState`] *(any)*: 初始时的 state。
 在同构应用中，你可以决定是否把服务端传来的 state 水合（hydrate）后传给它，或者从之前保存的用户会话中恢复一个传给它。如果你使用 [`combineReducers`](combineReducers.md) 创建 `reducer`，它必须是一个普通对象，与传入的 keys 保持同样的结构。否则，你可以自由传入任何 `reducer` 可理解的内容。
+
+3. [`enhancer`] *(Function)*: 可选参数，你可以指定第三方辅助工具，如middleware, time travel,  persistence等，来扩展store。Redux里唯一原生的enhancer是['applyMiddleware'](applyMiddleware.md)。
 
 #### 返回值
 
